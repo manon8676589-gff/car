@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoLux — Premium Car Rental Experience</title>
+  <meta name="description" content="AutoLux offers a premium car rental experience with luxury, economy, and SUV vehicles. Book your dream car today with easy online booking and transparent pricing." />
+  <meta name="keywords" content="car rental, luxury cars, economy cars, rent a car, AutoLux" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       LOADING SCREEN
+  ════════════════════════════════════════════ -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-icon">🏎</span>
+        <span class="loader-brand">AutoLux</span>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <p class="loader-text">Loading premium experience…</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       TOAST CONTAINER
+  ════════════════════════════════════════════ -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- ════════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════ -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">🏎</span>
+        <span class="logo-text">Auto<span class="logo-accent">Lux</span></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#cars" class="nav-link" data-section="cars">Cars</a></li>
+        <li><a href="#luxury" class="nav-link" data-section="luxury">Luxury</a></li>
+        <li><a href="#economy" class="nav-link" data-section="economy">Economy</a></li>
+        <li><a href="#booking" class="nav-link" data-section="booking">Booking</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="darkModeToggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="theme-icon">☀️</span>
+        </button>
+        <button id="favBtn" class="icon-btn" aria-label="Favorites" title="Favorites">
+          <span>❤️</span>
+          <span class="badge" id="favBadge">0</span>
+        </button>
+        <button id="compareBtn" class="icon-btn" aria-label="Compare" title="Compare Cars">
+          <span>⚖️</span>
+          <span class="badge" id="compareBadge">0</span>
+        </button>
+        <button id="historyBtn" class="icon-btn" aria-label="Booking History" title="Booking History">
+          <span>📋</span>
+        </button>
+        <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════════════════
+       HERO / LANDING
+  ════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge animate-fade-up">✦ Premium Car Rental Since 2010</div>
+      <h1 class="hero-title animate-fade-up" style="animation-delay:.1s">
+        Drive Your<br/><span class="hero-accent">Dream Car</span><br/>Today
+      </h1>
+      <p class="hero-subtitle animate-fade-up" style="animation-delay:.2s">
+        Discover our curated fleet of luxury and economy vehicles. Transparent pricing, 24/7 support, and seamless booking.
+      </p>
+      <div class="hero-actions animate-fade-up" style="animation-delay:.3s">
+        <a href="#cars" class="btn btn-primary">Explore Fleet</a>
+        <a href="#booking" class="btn btn-outline">Book Instantly</a>
+      </div>
+      <div class="hero-stats animate-fade-up" style="animation-delay:.4s">
+        <div class="stat-item">
+          <span class="stat-num" data-target="250">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Vehicles</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="15000">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="24">0</span><span class="stat-plus">/7</span>
+          <span class="stat-label">Support</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-car-showcase">
+      <div class="showcase-car">🚗</div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       QUICK SEARCH BAR
+  ════════════════════════════════════════════ -->
+  <section class="quick-search">
+    <div class="container">
+      <div class="search-card animate-slide-up">
+        <div class="search-field">
+          <label for="searchInput">🔍 Search Cars</label>
+          <input type="text" id="searchInput" placeholder="Brand, model, type…" autocomplete="off" />
+        </div>
+        <div class="search-field">
+          <label for="pickupDate">📅 Pick-up Date</label>
+          <input type="date" id="pickupDate" />
+        </div>
+        <div class="search-field">
+          <label for="returnDate">📅 Return Date</label>
+          <input type="date" id="returnDate" />
+        </div>
+        <div class="search-field">
+          <label for="locationSelect">📍 Location</label>
+          <select id="locationSelect">
+            <option value="">Any Location</option>
+            <option>New York</option>
+            <option>Los Angeles</option>
+            <option>Miami</option>
+            <option>Chicago</option>
+            <option>Las Vegas</option>
+          </select>
+        </div>
+        <button class="btn btn-primary search-btn" id="searchBtn">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       CAR COLLECTION (ALL CARS)
+  ════════════════════════════════════════════ -->
+  <section class="section" id="cars">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">Our Fleet</span>
+        <h2 class="section-title">Explore Our <span class="accent">Collection</span></h2>
+        <p class="section-desc">From thrilling sports cars to comfortable family SUVs — find the perfect vehicle for every journey.</p>
+      </div>
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar animate-slide-up">
+        <div class="filter-group">
+          <label>Category</label>
+          <div class="filter-pills" id="categoryFilter">
+            <button class="pill active" data-filter="all">All</button>
+            <button class="pill" data-filter="luxury">Luxury</button>
+            <button class="pill" data-filter="economy">Economy</button>
+            <button class="pill" data-filter="suv">SUV</button>
+            <button class="pill" data-filter="sports">Sports</button>
+            <button class="pill" data-filter="electric">Electric</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label>Fuel Type</label>
+          <select id="fuelFilter" class="filter-select">
+            <option value="">Any Fuel</option>
+            <option value="gasoline">Gasoline</option>
+            <option value="diesel">Diesel</option>
+            <option value="electric">Electric</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Transmission</label>
+          <select id="transFilter" class="filter-select">
+            <option value="">Any</option>
+            <option value="automatic">Automatic</option>
+            <option value="manual">Manual</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Seats</label>
+          <select id="seatsFilter" class="filter-select">
+            <option value="">Any</option>
+            <option value="2">2 Seats</option>
+            <option value="4">4 Seats</option>
+            <option value="5">5 Seats</option>
+            <option value="7">7 Seats</option>
+          </select>
+        </div>
+        <div class="filter-group price-filter">
+          <label>Max Price: <span id="priceLabel">$500</span>/day</label>
+          <input type="range" id="priceFilter" min="30" max="500" value="500" class="range-slider" />
+        </div>
+        <button class="btn btn-ghost btn-sm" id="clearFilters">Clear Filters</button>
+      </div>
+
+      <!-- Sort Bar -->
+      <div class="sort-bar animate-fade-up">
+        <span id="resultsCount" class="results-count">Showing all cars</span>
+        <div class="sort-options">
+          <span>Sort by:</span>
+          <select id="sortSelect" class="filter-select">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name A–Z</option>
+            <option value="rating-desc">Top Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Car Grid -->
+      <div class="car-grid" id="carGrid"></div>
+      <div class="no-results hidden" id="noResults">
+        <span class="no-results-icon">🔍</span>
+        <p>No cars match your filters. <button class="link-btn" id="resetFilters">Reset</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       LUXURY CARS
+  ════════════════════════════════════════════ -->
+  <section class="section section-alt" id="luxury">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">Premium Collection</span>
+        <h2 class="section-title">Luxury <span class="accent">Redefined</span></h2>
+        <p class="section-desc">Experience unparalleled comfort and performance with our hand-picked luxury fleet.</p>
+      </div>
+      <div class="car-grid" id="luxuryGrid"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       ECONOMY CARS
+  ════════════════════════════════════════════ -->
+  <section class="section" id="economy">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">Budget Friendly</span>
+        <h2 class="section-title">Economy <span class="accent">Smart Choice</span></h2>
+        <p class="section-desc">Reliable, fuel-efficient, and pocket-friendly — quality without compromise.</p>
+      </div>
+      <div class="car-grid" id="economyGrid"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       WHY CHOOSE US
+  ════════════════════════════════════════════ -->
+  <section class="section section-alt features-section">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">Why AutoLux</span>
+        <h2 class="section-title">The AutoLux <span class="accent">Advantage</span></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate-slide-up" style="animation-delay:.0s">
+          <div class="feature-icon">🛡️</div>
+          <h3>Full Insurance</h3>
+          <p>Every rental comes with comprehensive insurance coverage for your peace of mind.</p>
+        </div>
+        <div class="feature-card animate-slide-up" style="animation-delay:.1s">
+          <div class="feature-icon">🔑</div>
+          <h3>Instant Booking</h3>
+          <p>Confirm your reservation in under 60 seconds with our streamlined booking system.</p>
+        </div>
+        <div class="feature-card animate-slide-up" style="animation-delay:.2s">
+          <div class="feature-icon">🚗</div>
+          <h3>Free Delivery</h3>
+          <p>We deliver your vehicle directly to your hotel, airport, or preferred location.</p>
+        </div>
+        <div class="feature-card animate-slide-up" style="animation-delay:.3s">
+          <div class="feature-icon">📞</div>
+          <h3>24/7 Support</h3>
+          <p>Our team is always available to assist you, day or night, wherever you are.</p>
+        </div>
+        <div class="feature-card animate-slide-up" style="animation-delay:.4s">
+          <div class="feature-icon">💳</div>
+          <h3>Flexible Payment</h3>
+          <p>Pay your way — credit card, PayPal, crypto, or pay on pickup.</p>
+        </div>
+        <div class="feature-card animate-slide-up" style="animation-delay:.5s">
+          <div class="feature-icon">♻️</div>
+          <h3>Green Fleet</h3>
+          <p>Choose from our growing range of electric and hybrid eco-friendly vehicles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       BOOKING SECTION
+  ════════════════════════════════════════════ -->
+  <section class="section" id="booking">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">Reserve Now</span>
+        <h2 class="section-title">Book Your <span class="accent">Ride</span></h2>
+        <p class="section-desc">Fill in the details below to calculate your rental cost and complete your booking.</p>
+      </div>
+      <div class="booking-layout">
+        <!-- Booking Form -->
+        <div class="booking-form-wrap animate-slide-up">
+          <form class="booking-form" id="bookingForm" novalidate>
+            <div class="form-section-title">Personal Details</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookFirstName">First Name *</label>
+                <input type="text" id="bookFirstName" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label for="bookLastName">Last Name *</label>
+                <input type="text" id="bookLastName" placeholder="Doe" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookEmail">Email Address *</label>
+                <input type="email" id="bookEmail" placeholder="john@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="bookPhone">Phone Number *</label>
+                <input type="tel" id="bookPhone" placeholder="+1 (555) 000-0000" required />
+              </div>
+            </div>
+
+            <div class="form-section-title">Rental Details</div>
+            <div class="form-group">
+              <label for="bookCar">Select Vehicle *</label>
+              <select id="bookCar" required>
+                <option value="">Choose a car…</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookPickup">Pick-up Date *</label>
+                <input type="date" id="bookPickup" required />
+              </div>
+              <div class="form-group">
+                <label for="bookReturn">Return Date *</label>
+                <input type="date" id="bookReturn" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookPickupLoc">Pick-up Location *</label>
+                <select id="bookPickupLoc" required>
+                  <option value="">Select location</option>
+                  <option>New York — JFK Airport</option>
+                  <option>Los Angeles — LAX Airport</option>
+                  <option>Miami — MIA Airport</option>
+                  <option>Chicago — O'Hare Airport</option>
+                  <option>Las Vegas — LAS Airport</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="bookReturnLoc">Return Location</label>
+                <select id="bookReturnLoc">
+                  <option value="">Same as pick-up</option>
+                  <option>New York — JFK Airport</option>
+                  <option>Los Angeles — LAX Airport</option>
+                  <option>Miami — MIA Airport</option>
+                  <option>Chicago — O'Hare Airport</option>
+                  <option>Las Vegas — LAS Airport</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-section-title">Add-ons</div>
+            <div class="addons-grid">
+              <label class="addon-check">
+                <input type="checkbox" id="addonGPS" value="15" /> GPS Navigation — $15/day
+              </label>
+              <label class="addon-check">
+                <input type="checkbox" id="addonSeat" value="10" /> Child Seat — $10/day
+              </label>
+              <label class="addon-check">
+                <input type="checkbox" id="addonInsurance" value="25" /> Premium Insurance — $25/day
+              </label>
+              <label class="addon-check">
+                <input type="checkbox" id="addonDriver" value="50" /> Chauffeur — $50/day
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="bookNotes">Special Requests</label>
+              <textarea id="bookNotes" rows="3" placeholder="Any special requests or notes…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="bookSubmitBtn">
+              <span>Confirm Booking</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Cost Calculator -->
+        <div class="booking-calculator animate-slide-up" style="animation-delay:.15s">
+          <div class="calc-header">
+            <span class="calc-icon">🧮</span>
+            <h3>Price Calculator</h3>
+          </div>
+
+          <div class="calc-car-info" id="calcCarInfo">
+            <p class="calc-placeholder">Select a car to see pricing details</p>
+          </div>
+
+          <div class="calc-breakdown" id="calcBreakdown">
+            <div class="calc-row">
+              <span>Duration</span>
+              <span id="calcDays">— days</span>
+            </div>
+            <div class="calc-row">
+              <span>Base Rate</span>
+              <span id="calcBaseRate">—</span>
+            </div>
+            <div class="calc-row">
+              <span>Add-ons</span>
+              <span id="calcAddons">—</span>
+            </div>
+            <div class="calc-row">
+              <span>Location Fee</span>
+              <span id="calcLocFee">—</span>
+            </div>
+            <div class="calc-divider"></div>
+            <div class="calc-row calc-total">
+              <span>Total</span>
+              <span id="calcTotal">—</span>
+            </div>
+          </div>
+
+          <!-- Duration Calculator -->
+          <div class="duration-calc">
+            <h4>Duration Calculator</h4>
+            <div class="duration-inputs">
+              <div class="dur-field">
+                <label>From</label>
+                <input type="date" id="durFrom" />
+              </div>
+              <div class="dur-arrow">→</div>
+              <div class="dur-field">
+                <label>To</label>
+                <input type="date" id="durTo" />
+              </div>
+            </div>
+            <div class="duration-result" id="durationResult">
+              Select dates to calculate rental duration
+            </div>
+          </div>
+
+          <div class="calc-note">
+            <span>🔒</span> Secure booking — free cancellation up to 48h before pickup
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       TESTIMONIALS
+  ════════════════════════════════════════════ -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">Reviews</span>
+        <h2 class="section-title">What Our <span class="accent">Clients Say</span></h2>
+      </div>
+      <div class="testimonials-slider" id="testimonialsSlider">
+        <div class="testimonials-track" id="testimonialsTrack"></div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="sliderPrev" aria-label="Previous">‹</button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="sliderNext" aria-label="Next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-visual animate-slide-up">
+          <div class="about-image-card">
+            <div class="about-img-emoji">🏢</div>
+            <div class="about-img-badge">Est. 2010</div>
+          </div>
+          <div class="about-accent-card">
+            <span class="accent-num">15+</span>
+            <span class="accent-text">Years of Excellence</span>
+          </div>
+        </div>
+        <div class="about-content animate-slide-up" style="animation-delay:.15s">
+          <span class="section-badge">Our Story</span>
+          <h2 class="section-title">About <span class="accent">AutoLux</span></h2>
+          <p class="about-text">Founded in 2010, AutoLux has grown from a small local agency to one of the most trusted premium car rental brands in the United States. Our mission is to make luxury accessible and every drive unforgettable.</p>
+          <p class="about-text">We maintain a fleet of over 250 meticulously serviced vehicles, ranging from economy compacts to ultra-luxury supercars, all equipped with the latest safety technology and connectivity features.</p>
+          <div class="about-highlights">
+            <div class="highlight">✅ ISO 9001 Certified Quality Management</div>
+            <div class="highlight">✅ Award-winning customer service (2022–2025)</div>
+            <div class="highlight">✅ 35 locations across the United States</div>
+            <div class="highlight">✅ Carbon offset program for every rental</div>
+          </div>
+          <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════════ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">FAQ</span>
+        <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">Contact <span class="accent">Us</span></h2>
+        <p class="section-desc">Have questions? Our team is here to help you 24/7.</p>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-info animate-slide-up">
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h4>Headquarters</h4>
+                <p>350 Fifth Avenue, New York, NY 10118</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <h4>Phone</h4>
+                <p>+1 (800) AUTOLUX</p>
+                <p>+1 (212) 555-0147</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <h4>Email</h4>
+                <p>hello@autolux.com</p>
+                <p>support@autolux.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">⏰</div>
+              <div>
+                <h4>Hours</h4>
+                <p>Mon–Fri: 8am – 10pm</p>
+                <p>Sat–Sun: 9am – 8pm</p>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="Facebook">f</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="contact-form-wrap animate-slide-up" style="animation-delay:.15s">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ctName">Your Name *</label>
+                <input type="text" id="ctName" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="ctEmail">Email *</label>
+                <input type="email" id="ctEmail" placeholder="john@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ctSubject">Subject *</label>
+              <input type="text" id="ctSubject" placeholder="How can we help?" required />
+            </div>
+            <div class="form-group">
+              <label for="ctMessage">Message *</label>
+              <textarea id="ctMessage" rows="5" placeholder="Write your message here…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <span class="logo-icon">🏎</span>
+            <span class="logo-text">Auto<span class="logo-accent">Lux</span></span>
+          </a>
+          <p>Premium car rental experience since 2010. Drive luxury, live freely.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="Facebook">f</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Fleet</h4>
+          <ul>
+            <li><a href="#luxury">Luxury Cars</a></li>
+            <li><a href="#economy">Economy Cars</a></li>
+            <li><a href="#cars">SUVs</a></li>
+            <li><a href="#cars">Sports Cars</a></li>
+            <li><a href="#cars">Electric Vehicles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Insurance Info</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 AutoLux. All rights reserved.</p>
+        <p>Designed with ❤️ for premium experiences</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       MODALS
+  ════════════════════════════════════════════ -->
+
+  <!-- Favorites Modal -->
+  <div class="modal-overlay" id="favModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>❤️ My Favorites</h3>
+        <button class="modal-close" id="favModalClose">✕</button>
+      </div>
+      <div class="modal-body" id="favModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Compare Modal -->
+  <div class="modal-overlay" id="compareModal">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h3>⚖️ Compare Cars</h3>
+        <button class="modal-close" id="compareModalClose">✕</button>
+      </div>
+      <div class="modal-body" id="compareModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Booking History Modal -->
+  <div class="modal-overlay" id="historyModal">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h3>📋 Booking History</h3>
+        <button class="modal-close" id="historyModalClose">✕</button>
+      </div>
+      <div class="modal-body" id="historyModalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost btn-sm" id="clearHistoryBtn">Clear All History</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Car Detail Modal -->
+  <div class="modal-overlay" id="carDetailModal">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <h3 id="carDetailTitle">Car Details</h3>
+        <button class="modal-close" id="carDetailClose">✕</button>
+      </div>
+      <div class="modal-body" id="carDetailBody"></div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">▲</button>
+
+  <script src="app.js"></script>
+</body>
+</html>
